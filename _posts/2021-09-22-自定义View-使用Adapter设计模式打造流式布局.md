@@ -10,7 +10,7 @@ tags: 自定义View
 
 ### 效果
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0b961b686e654331b509450fd3e2bf1f~tplv-k3u1fbpfcp-watermark.image?)
+![view_03_01.webp](../images/view_03_01.webp)
 ### 分析
 1.继承自谁？我们可以看到内部包含许多View，因此这是一个自定义ViewGroup
 
