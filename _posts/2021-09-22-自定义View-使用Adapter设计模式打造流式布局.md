@@ -39,7 +39,7 @@ FlowLayout的高度 = 所有行的最大高度+PaddingTop+PaddingBottom
 下面看下具体的实现代码
 
 
-```
+```java
 private List<List<View>> mChildViews = new ArrayList<>();
 private ArrayList<View> childViews = new ArrayList<>();//每一行的View
 @Override
@@ -96,8 +96,10 @@ protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
     setMeasuredDimension(widthSize, heightSize);
 }
 ```
+
 2. onLayout摆放方法，这里我们需要注意的是处理好子View的Margin和FlowLayout的Padding，这里拿到我们在onMeasure中赋值的集合，在这里进行循环摆放，
-```
+
+```java
 @Override
 protected void onLayout(boolean changed, int l, int t, int r, int b) {
     int left, top = this.getPaddingTop(), right, bottom;
@@ -119,10 +121,12 @@ protected void onLayout(boolean changed, int l, int t, int r, int b) {
     }
 }
 ```
+
 到这里，一个流式布局大致完成，不过这样的流式布局，使用及后续的修改比较麻烦，再者就是在添加数据时，一个数据的多样性，想String[],List<String>都比较麻烦，下面我们仿照ListView，RecycleView一样使用Adapter设计模式来解决这些耦合度问题，如果数据变化的话，我们也按照ListView，RecycleView一样采用观察者模式，进行刷新.下面就来看下具体的实现吧
 
 1. 首先我们需要定义一个抽象的类，我们关心的条目个数，及View显示需要定义为抽象方法，至于其他的公共使用的，我们在该类中实现，
-```
+
+```java
 public abstract class FlowLayoutAdapter {
     private final DataSetObservable mDataSetObservable = new DataSetObservable();
     // 子view的集合
@@ -164,8 +168,10 @@ public abstract class FlowLayoutAdapter {
     }
 }
 ```
+
 2.在FlowLayout中设置setAdapter()方法添加View
-```
+
+```java
 public void setAdapter(FlowLayoutAdapter adapter) {
     if (mAdapter != null && mDataSetObserver != null) {
         //注销观察者
@@ -199,9 +205,11 @@ protected final void resetLayout() {
     }
 }
 ```
+
 3. 下面我们看一下具体使用实例
 3.1 在Activity中：
-```
+
+```java
 class FlowLayoutActivity : AppCompatActivity() {
     companion object {
         fun start(mContext: Context, title: String) {
@@ -223,8 +231,10 @@ class FlowLayoutActivity : AppCompatActivity() {
     }
 }
 ```
+
 3.2 在Adapter中
-```
+
+```java
 public class DataFlowAdapter extends FlowLayoutAdapter {
     private Context mContext;
     private List<String> dataList;
@@ -247,9 +257,10 @@ public class DataFlowAdapter extends FlowLayoutAdapter {
     }
 }
 ```
+
 至此，整个流式布局到这里也就完成了
 
-代码地址：https://gitee.com/QingDian_Fan/FlowLayoutProject
+代码地址：[https://gitee.com/QingDian_Fan/FlowLayoutProject](https://gitee.com/QingDian_Fan/FlowLayoutProject)
 
 
 
