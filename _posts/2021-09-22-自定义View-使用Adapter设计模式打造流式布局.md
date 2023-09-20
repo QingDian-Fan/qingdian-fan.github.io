@@ -10,7 +10,7 @@ tags: 自定义View
 
 ### 效果
 
-![view_03_01.webp](../images/view_03_01.webp)
+![view_03_01.webp](https://s2.loli.net/2023/09/20/UdJuM3XFhs6zyn9.webp)
 ### 分析
 1.继承自谁？我们可以看到内部包含许多View，因此这是一个自定义ViewGroup
 
