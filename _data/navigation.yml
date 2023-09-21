@@ -52,7 +52,7 @@ header:
     url: https://github.com/QingDian-Fan
 
 android-source:
-  - title:      自定义View
+  - title: 自定义View
     children:
       - title:  自定义View-View绘制流程
         url:    android-source/dc-view-1
@@ -60,7 +60,7 @@ android-source:
         url:    android-source/dc-view-2
       - title:  自定义View-View绘制流程
         url:    android-source/dc-view-3
-   - title:      源码分析
+   - title: 源码分析
     children:
       - title:  源码分析之EventBus
         url:    android-source/dc-source-1
@@ -72,7 +72,7 @@ android-source:
         url:    android-source/dc-source-4
       - title:  源码分析之OkHttp(三)
         url:    android-source/dc-source-5
-   - title:      NDK
+   - title: NDK
     children:
       - title:  ndk开发前奏
         url:    android-source/dc-ndk-1
