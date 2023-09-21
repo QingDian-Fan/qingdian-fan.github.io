@@ -1,6 +1,10 @@
 ---
 title: 自定义View-使用Adapter设计模式打造流式布局
 tags: 自定义View
+permalink: android-source/dc-view-3
+key: android-source-dc-view-3
+sidebar:
+  nav: android-source
 ---
 
 ### 概述

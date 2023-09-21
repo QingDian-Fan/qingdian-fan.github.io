@@ -50,3 +50,31 @@ header:
       tr      : &TR       GitHub
       # @end locale config
     url: https://github.com/QingDian-Fan
+
+
+    android-source:
+  - title:      自定义View
+    children:
+      - title:  自定义View-View绘制流程
+        url:    android-source/dc-view-1
+      - title:  自定义View-View绘制流程
+        url:    android-source/dc-view-2
+      - title:  自定义View-View绘制流程
+        url:    android-source/dc-view-3
+   - title:      源码分析
+    children:
+      - title:  源码分析之EventBus
+        url:    android-source/dc-source-1
+      - title:  源码分析之Handler
+        url:    android-source/dc-source-2
+      - title:  源码分析之OkHttp(一)
+        url:    android-source/dc-source-3
+      - title:  源码分析之OkHttp(二)
+        url:    android-source/dc-source-4
+      - title:  源码分析之OkHttp(三)
+        url:    android-source/dc-source-5
+   - title:      NDK
+    children:
+      - title:  ndk开发前奏
+        url:    android-source/dc-ndk-1
+
