@@ -51,8 +51,7 @@ header:
       # @end locale config
     url: https://github.com/QingDian-Fan
 
-
-    android-source:
+android-source:
   - title:      自定义View
     children:
       - title:  自定义View-View绘制流程
