@@ -58,9 +58,9 @@ android-source:
         url:    android-source/dc-view-1
       - title:  仿酷狗音乐主页面侧滑效果
         url:    android-source/dc-view-2
-      - title:  使用Adapter设计模式打造流式布局
+      - title:  使用适配器模式打造流式布局
         url:    android-source/dc-view-3
-      - title:  Material Design自定义Behavior
+      - title:  自定义Behavior
         url:    android-source/dc-view-4
       - title:  View的Touch事件分发
         url:    android-source/dc-view-5
