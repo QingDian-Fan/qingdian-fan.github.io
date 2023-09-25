@@ -54,12 +54,16 @@ header:
 android-source:
   - title:      自定义View
     children:
-      - title:  自定义View-View绘制流程
+      - title:  View绘制流程
         url:    android-source/dc-view-1
-      - title:  自定义View-仿酷狗音乐主页面侧滑效果
+      - title:  仿酷狗音乐主页面侧滑效果
         url:    android-source/dc-view-2
-      - title:  自定义View-使用Adapter设计模式打造流式布局
+      - title:  使用Adapter设计模式打造流式布局
         url:    android-source/dc-view-3
+      - title:  Material Design自定义Behavior
+        url:    android-source/dc-view-4
+      - title:  View的Touch事件分发
+        url:    android-source/dc-view-5
   - title:      源码分析
     children:
       - title:  源码分析之EventBus
@@ -74,5 +78,5 @@ android-source:
         url:    android-source/dc-source-5
   - title:      NDK
     children:
-      - title:  ndk开发前奏
+      - title:  NDK开发前奏
         url:    android-source/dc-ndk-1
