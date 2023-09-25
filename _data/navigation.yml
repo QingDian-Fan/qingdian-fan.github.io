@@ -96,7 +96,7 @@ android-source:
     children:
       - title:  NDK开发前奏
         url:    android-source/dc-ndk-1
-    - title:      其他
+  - title:    其他
     children:
       - title:  APT基础之注解与反射
         url:    android-source/dc-other-1
