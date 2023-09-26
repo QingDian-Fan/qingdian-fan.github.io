@@ -96,6 +96,14 @@ android-source:
     children:
       - title:  NDK开发前奏
         url:    android-source/dc-ndk-1
+      - title:  OpenCV之二维码识别
+        url:    android-source/dc-ndk-2
+      - title:  OpenCV之行人检测
+        url:    android-source/dc-ndk-3
+      - title:  OpenCV之行图像拼接
+        url:    android-source/dc-ndk-4
+      - title:  OpenCV之人脸美容
+        url:    android-source/dc-ndk-5
   - title:    其他
     children:
       - title:  APT基础之注解与反射
