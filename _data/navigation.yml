@@ -100,7 +100,7 @@ android-source:
         url:    android-source/dc-ndk-2
       - title:  OpenCV之行人检测
         url:    android-source/dc-ndk-3
-      - title:  OpenCV之行图像拼接
+      - title:  OpenCV之图像拼接
         url:    android-source/dc-ndk-4
       - title:  OpenCV之人脸美容
         url:    android-source/dc-ndk-5
