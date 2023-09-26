@@ -1,5 +1,5 @@
 ---
-title: 自定义View-使用Adapter设计模式打造流式布局
+title: 使用适配器设计模式打造流式布局
 tags: 自定义View
 permalink: android-source/dc-view-3
 key: android-source-dc-view-3
