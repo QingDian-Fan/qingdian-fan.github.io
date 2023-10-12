@@ -104,6 +104,8 @@ android-source:
         url:    android-source/dc-ndk-5
       - title:  OpenCV之人脸美容
         url:    android-source/dc-ndk-6
+      - title:  OpenCV之银行卡识别
+        url:    android-source/dc-ndk-7
   - title:    其他
     children:
       - title:  APT基础之注解与反射
