@@ -264,7 +264,7 @@ public class DataFlowAdapter extends FlowLayoutAdapter {
 
 至此，整个流式布局到这里也就完成了
 
-代码地址：[https://gitee.com/QingDian_Fan/FlowLayoutProject](https://gitee.com/QingDian_Fan/FlowLayoutProject)
+代码地址：[适配器流式布局](https://github.com/QingDian-Fan/WidgetProjects/tree/master/FlowLayoutProject)
 
 
 
