@@ -136,19 +136,41 @@ android.applicationVariants.all { variant ->
 
 切入点，是带条件的Join Points，确定切入点位置。
 
-|      |      |
-| ---- | ---- |
-|      |      |
-|      |      |
-|      |      |
+| Pointcuts语法                     | **说明**        |
+| --------------------------------- | --------------- |
+| execution(MethodPattern)          | 方法执行        |
+| call(MethodPattern)               | 方法被调用      |
+| execution(ConstructorPattern)     | 构造方法执行    |
+| call(ConstructorPattern)          | 构造方法被调用  |
+| get(FieldPattern)                 | 读取属性        |
+| set(FieldPattern)                 | 设置属性        |
+| staticinitialization(TypePattern) | static 块初始化 |
+| handler(TypePattern)              | 异常处理        |
 
+Pattern规则如下：
 
+- 下表中中括号为可选项，没有可以不写
+
+| **Pattern**        | **规则（注意空格）**                                         |
+| ------------------ | ------------------------------------------------------------ |
+| MethodPattern      | [@注解] [访问权限] 返回值类型 [类名.]方法名(参数) [throws 异常类型] |
+| ConstructorPattern | [@注解] [访问权限] [类名.]new(参数) [throws 异常类型]        |
+| FieldPattern       | [@注解] [访问权限] 变量类型 [类名.]变量名                    |
+| TypePattern        | `*` 单独使用事表示匹配任意类型，` ..` 匹配任意字符串，` ..` 单独使用时表示匹配任意长度任意类型，` +` 匹配其自身及子类，还有一个 `...` 表示不定个数。也可以使用` &&，，！`进行逻辑运算。 |
+
+### Advice
+
+| **Advice**      | **说明**                                                     |
+| --------------- | ------------------------------------------------------------ |
+| @Before         | 在执行JPoint之前                                             |
+| @After          | 在执行JPoint之后                                             |
+| @AfterReturning | 方法执行后，返回结果后再执行。                               |
+| @AfterThrowing  | 处理未处理的异常。                                           |
+| @Around         | 可以替换原代码。如果需要执行原代码，<br />可以使用ProceedingJoinPoint#proceed()。 |
 
 # 实战
 
-
-
-定义一个注解
+### 定义注解
 
 ```
 @Retention(AnnotationRetention.RUNTIME)
@@ -161,9 +183,7 @@ annotation class SingleClick constructor(
 )
 ```
 
-
-
-实现Aspect
+### Aspect实现具体逻辑
 
 ```
 
@@ -214,9 +234,7 @@ class SingleClickAspect {
 }
 ```
 
-
-
-代码中调用样例
+### 代码中调用样例
 
 ```
 var index = 0
