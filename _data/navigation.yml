@@ -114,5 +114,5 @@ android-source:
         url:    android-source/dc-other-2
       - title:  APT技术之实战使用
         url:    android-source/dc-other-3
-      - title:  AspectJ基本使用
+      - title:  AOP之AspectJ基本使用
         url:    android-source/dc-other-4
