@@ -1,5 +1,5 @@
 ---
-title: AspectJ基本使用
+title: AOP之AspectJ基本使用
 tags: 其他
 permalink: android-source/dc-other-4
 key: android-source-dc-other-4
@@ -7,45 +7,65 @@ sidebar:
   nav: android-source
 ---
 
-## 一、AOP介绍
+# 基本介绍
 
-AOP：Aspect-Oriented Programming，面向切面编程，是一种新的方法论（编程范式），是对传统 OOP(Object-Oriented Programming，面向对象编程)的补充。旨在通过允许横切关注点的分离，提高模块化。如在方法执行前、或执行后、或是在执行中出现异常后这些地方进行拦截处理或叫做增强处理。主要应用于：日志收集、事务管理、安全检查、缓存、对象池管理等。
+## AOP
 
-AOP实现的关键就在于AOP框架自动创建的AOP代理，AOP代理则可分为静态代理（例如：原生AspectJ）和动态代理（例如：spring aop）两大类，其中静态代理是指使用AOP框架提供的命令进行编译，从而在编译阶段就可生成 AOP 代理类，因此也称为编译时增强；而动态代理则在运行时借助于JDK动态代理、CGLIB等在内存中“临时”生成AOP动态代理类，因此也被称为运行时增强。
+### 概念
 
-### AOP基本概念：
+AOP为Aspect Oriented Programming的缩写，意为：面向切面编程，它可以通过预编译方式和运行期动态代理实现在不修改源代码的情况下给程序动态统一添加功能的一种技术。
 
-切入点（pointcut）：在哪些类、哪些方法上切入，通常是一个正则表达式
-执行点（JoinPoint）：通过pointcut选取出来的集合中的具体的一个执行点，我们就叫JoinPoint
-通知（advice）：在方法前、方法后、方法前后、异常等做什么。
-切面（aspect）：切面 = pointcut + advice。即在什么时机、什么地方、做什么。
-织入（weaving）：把切面加入对象，并创建出代理对象的过程。
+### 作用
 
-<!--more-->
+AOP可以做一些事件的拦截或者做某些事件的预处理。例如：我们经常出现View的连续多次点击，正常我们需要在这块记录第一次的点击时间，与下面做对比如果是在限制的时间内点击的，都忽略掉。这个事例我们就可以采用AOP进行处理，并且进行了对点击事件和限制条件进行隔离，降低业务逻辑的耦合性，提高程序的可重用型和开发效率。
 
-## 二、AspectJ介绍
+### 实现方式
 
-AspectJ：全称Eclipse AspectJ，官网The AspectJ Project  The Eclipse Foundation 是Java社区里最完整最流行的AOP框架，即AOP的java版实现，它定义了AOP语法，它有一个专门的编译器用来生成遵守Java字节编码规范的Class文件。（除了AspectJ外，还有很多AOP实现，例如ASMDex）
+AOP实现主要分为 静态 和 动态 两种
 
+- 静态方式：在编译期，切面直接以字节码方式编译到目标字节码文件中，生成静态的AOP代理类（主要有：AspectJ等）
+- 动态方式：在运行期，为接口动态生成代理类（主要有：Spring AOP、动态代理、自定义类加载器等）
 
+## AspectJ
 
-在项目的build.gradle中添加一下代码
+### 概念
 
-```groovy
+AspectJ是一个面向切面的框架，它扩展了Java语言。AspectJ定义了AOP语法，它有一个专门的编译器用来生成遵守Java字节编码规范的Class文件。简单来说，AspectJ是AOP的一种实现框架。
+
+### 原理
+
+执行AspectJ的时候，我们需要使用ajc编译器，对Aspect和需要织入的Java Source Code进行编译，得到字节码后，可以使用java命令来执行。
+
+ajc编译器会首先调用javac将Java源代码编译成字节码，然后根据我们在Aspect中定义的pointcut找到相对应的Java Byte Code部分，使用对应的advice动作修改源代码的字节码。最后得到了经过Aspect织入的Java字节码，然后就可以正常使用这个字节码了
+
+### 优点
+
+- 功能强大：可以实现形形色色的功能，开发者可以有很大的操作空间。
+
+- 非侵入式：可以在不修改原有程序的前提下，对原有逻辑进行修改和监控。
+
+- 性能强大：在编译期间进行代码修改和注入，对于运行期没有性能损耗。
+
+- 友好：使用java代码来操作字节码，不必对字节码有过多的了解就可以进行修改，对开发者非常友好。
+
+# 使用
+
+## 集成AspectJ
+
+1. 在根目录的build.gradletian添加以下代码：
+
+```
 classpath 'org.aspectj:aspectjtools:1.9.6'
 classpath 'org.aspectj:aspectjweaver:1.9.6'
-
 ```
 
-在module的build.gradle中添加一下代码
+2. 在module的build.gradle中添加一下代码
 
 ```
-implementation 'org.aspectj:aspectjrt:1.9.6'
-```
+dependencies {
+	implementation 'org.aspectj:aspectjrt:1.9.6'
+}
 
-
-
-```
 //aop aspectj
 import org.aspectj.bridge.IMessage
 import org.aspectj.bridge.MessageHandler
@@ -106,7 +126,25 @@ android.applicationVariants.all { variant ->
 }
 ```
 
+## 基本语法
 
+### Join Points
+
+连接点,程序中可能作为代码注入目标的特定的点。
+
+### Pointcuts
+
+切入点，是带条件的Join Points，确定切入点位置。
+
+|      |      |
+| ---- | ---- |
+|      |      |
+|      |      |
+|      |      |
+
+
+
+# 实战
 
 
 
