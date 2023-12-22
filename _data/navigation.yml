@@ -80,6 +80,8 @@ android-source:
         url:    android-source/dc-source-6
       - title:  源码分析之Retrofit
         url:    android-source/dc-source-7
+      - title:  源码分析之LiveData
+        url:    android-source/dc-source-8
   - title:      设计模式
     children:
       - title:  Builder设计模式
