@@ -32,7 +32,7 @@ Android中的View事件分发机制是指当用户触摸屏幕时，系统如何
 
 **Activity、ViewGroup、View**。`Android`的`UI`界面由`Activity`、`ViewGroup`、`View` 及其派生类组成
 
-<img src="/Users/databaker-iOS/Library/Application Support/typora-user-images/image-20240719104925361.png" alt="image-20240719104925361" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/QingDian-Fan/ImageRepository/master/images/image-20240719104925361.png" alt="image-20240719104925361" style="zoom:50%;" />
 
 | **类型**  | 简介                  | 备注                                                         |
 | --------- | --------------------- | ------------------------------------------------------------ |
@@ -136,7 +136,7 @@ Android事件分发机制首先会将事件传递到Activity中，具体是执�
 
 #### 总结
 
-![image-20240719114036708](/Users/databaker-iOS/Library/Application Support/typora-user-images/image-20240719114036708.png)
+![image-20240719114036708](https://raw.githubusercontent.com/QingDian-Fan/ImageRepository/master/images/image-20240719114036708.png)
 
 ### ViewGroup 对事件的分发机制
 
