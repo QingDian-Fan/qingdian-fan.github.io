@@ -146,6 +146,167 @@ CoordinatorLayout自己并不控制View，所有的控制权都在Behavior这个
 
 
 
+```
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/title_layout"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            app:layout_scrollFlags="scroll|enterAlways|snap"
+            android:background="#5e85ef"
+            android:orientation="horizontal" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        app:layout_behavior="com.custom.behavior.CustomBehavior"
+        android:layout_marginBottom="70dp"
+        android:src="@mipmap/icon_add"
+        app:layout_scrollFlags="scroll|enterAlways|snap" />
+
+    <LinearLayout
+        android:id="@+id/bottom_tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/white"
+        app:layout_behavior="com.custom.behavior.CustomBottomBehavior">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="10dp"
+            android:src="@mipmap/icon_home" />
+
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="10dp"
+            android:src="@mipmap/icon_circle" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="10dp"
+            android:src="@mipmap/icon_note" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="10dp"
+            android:src="@mipmap/icon_mine" />
+
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+```
+
+
+
+```
+public class CustomBehavior extends FloatingActionButton.Behavior {
+    public CustomBehavior(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+    @Override
+    public boolean onStartNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull FloatingActionButton child, @NonNull View directTargetChild, @NonNull View target, int axes, int type) {
+        return axes == ViewCompat.SCROLL_AXIS_VERTICAL;
+    }
+
+
+    private boolean isSideOut = false;
+
+    @Override
+    public void onNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull FloatingActionButton child, @NonNull View target, int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed, int type, @NonNull int[] consumed) {
+        super.onNestedScroll(coordinatorLayout, child, target, dxConsumed, dyConsumed, dxUnconsumed, dyUnconsumed, type, consumed);
+        if (dyConsumed > 0) {
+            if (!isSideOut) {
+                int animateHeight = ((CoordinatorLayout.LayoutParams) (child.getLayoutParams())).bottomMargin + child.getMeasuredHeight() + 10;
+                child.animate().translationY(animateHeight).setDuration(500).start();
+                isSideOut = true;
+            }
+        } else {
+            if (isSideOut) {
+                child.animate().translationY(0).setDuration(500).start();
+                isSideOut = false;
+            }
+        }
+
+    }
+}
+```
+
+
+
+
+
+```
+
+public class CustomBottomBehavior extends BottomSheetBehavior {
+    public CustomBottomBehavior(@NonNull Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+    @Override
+    public boolean onStartNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull View child, @NonNull View directTargetChild, @NonNull View target, int axes, int type) {
+        return axes == ViewCompat.SCROLL_AXIS_VERTICAL;
+    }
+
+    private boolean isSideOut = false;
+
+    @Override
+    public void onNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull View child, @NonNull View target, int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed, int type, @NonNull int[] consumed) {
+        super.onNestedScroll(coordinatorLayout, child, target, dxConsumed, dyConsumed, dxUnconsumed, dyUnconsumed, type, consumed);
+        if (dyConsumed > 0) {
+            if (!isSideOut) {
+                int animateHeight = ((CoordinatorLayout.LayoutParams) (child.getLayoutParams())).bottomMargin + child.getMeasuredHeight() + 10;
+                child.animate().translationY(animateHeight).setDuration(500).start();
+                isSideOut = true;
+            }
+        } else {
+            if (isSideOut) {
+                child.animate().translationY(0).setDuration(500).start();
+                isSideOut = false;
+            }
+        }
+
+    }
+}
+
+```
+
 
 
 
