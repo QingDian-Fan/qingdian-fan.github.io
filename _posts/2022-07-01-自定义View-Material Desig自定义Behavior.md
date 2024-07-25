@@ -15,6 +15,8 @@ CoordinatorLayout自己并不控制View，所有的控制权都在Behavior这个
 
 <!--more-->
 
+<img src="https://raw.githubusercontent.com/QingDian-Fan/ImageRepository/master/images/behavior-1.gif" alt="behavior-1" style="zoom:50%;" />
+
 ```java
     /**
      * 表示是否给应用了Behavior 的View 指定一个依赖的布局，通常，当依赖的View 布局发生变化时
